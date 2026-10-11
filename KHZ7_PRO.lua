@@ -1,11 +1,3 @@
---[[
-    السكربت المطور الشامل (KHZ Hub V6.5 - Advanced Features & Controls)
-    - تحديث إصدار القائمة إلى V6.5.
-    - إضافة أزرار إظهار وإخفاء جميع الأزرار العائمة بضغطة واحدة.
-    - إضافة زر عائم لإقفال جميع المميزات فوراً.
-    - إضافة ميزة الاختفاء + الاستلقاء ثم العودة والانحناء للخلف حتى السقوط.
-    - دعم كامل لربط الميزة الجديدة وتخصيص زر كيبورد وزر عائم لها.
---]]
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -874,7 +866,7 @@ local CloseBtn = Instance.new("TextButton", TopBar)
 CloseBtn.Size = UDim2.new(0, 28, 0, 28)
 CloseBtn.Position = UDim2.new(1, -32, 0.15, 0)
 CloseBtn.BackgroundColor3 = Color3.fromRGB(180, 43, 68)
-CloseBtn.Text = "✕"; CloseBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+CloseBtn.Text = "X"; CloseBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
 CloseBtn.AutoButtonColor = false
 CloseBtn.Font = Enum.Font.GothamBold
 Instance.new("UICorner", CloseBtn).CornerRadius = UDim.new(0, 8)
@@ -982,24 +974,24 @@ local function createTabBtn(textStr, targetPage)
     return btn
 end
 
-createTabBtn("✨ المميزات", Tab1Page)
-createTabBtn("🏃 الحركة", Tab2Page)
-createTabBtn("🔘 الأزرار", Tab3Page)
-createTabBtn("⌨️ الكيبورد", Tab4Page)
-createTabBtn("🎨 الإعدادات", Tab5Page)
+createTabBtn("المميزات", Tab1Page)
+createTabBtn("الحركة", Tab2Page)
+createTabBtn("الأزرار", Tab3Page)
+createTabBtn("الكيبورد", Tab4Page)
+createTabBtn("الإعدادات", Tab5Page)
 
 -- =========================================================================
 --  محتوى التبويبات
 -- =========================================================================
 
 -- Tab 1: المميزات
-local FeatureGhostBtn, GhostBtnTxt = createStyledButton(Tab1Page, "👻 ميزة الاختفاء FE Ghost [ معطل ]")
-local FeatureLayDownBtn, LayDownBtnTxt = createStyledButton(Tab1Page, "🛌 ميزة الاستلقاء والزحف [ معطل ]")
-local FeatureBackFallBtn, BackFallBtnTxt = createStyledButton(Tab1Page, "🌀 ميزة الانحناء والسقوط للوراء [ معطل ]")
-local FeatureBombBtn, BombBtnTxt = createStyledButton(Tab1Page, "💣 ميزة إعطاء القنبلة العادية [ معطل ]")
-local FeatureFastBombBtn, FastBombBtnTxt = createStyledButton(Tab1Page, "⚡ ميزة التمرير الأسرع للقنبلة [ معطل ]")
-local FeatureClickTPBtn, ClickTPBtnTxt = createStyledButton(Tab1Page, "📍 الانتقال بالنقر على الشاشة [ معطل ]")
-local FeatureDisableAllBtn, DisableAllBtnTxt = createStyledButton(Tab1Page, "🛑 إقفال جميع المميزات")
+local FeatureGhostBtn, GhostBtnTxt = createStyledButton(Tab1Page, " ميزة الاختفاء FE Ghost [ معطل ]")
+local FeatureLayDownBtn, LayDownBtnTxt = createStyledButton(Tab1Page, " ميزة الاستلقاء والزحف [ معطل ]")
+local FeatureBackFallBtn, BackFallBtnTxt = createStyledButton(Tab1Page, " ميزة الانحناء والسقوط للوراء [ معطل ]")
+local FeatureBombBtn, BombBtnTxt = createStyledButton(Tab1Page, " ميزة إعطاء القنبلة العادية [ معطل ]")
+local FeatureFastBombBtn, FastBombBtnTxt = createStyledButton(Tab1Page, " ميزة التمرير الأسرع للقنبلة [ معطل ]")
+local FeatureClickTPBtn, ClickTPBtnTxt = createStyledButton(Tab1Page, " الانتقال بالنقر على الشاشة [ معطل ]")
+local FeatureDisableAllBtn, DisableAllBtnTxt = createStyledButton(Tab1Page, " إقفال جميع المميزات")
 
 -- Tab 2: الحركة والطيران
 local function createInputRow(parent, labelText, defaultValue, callback)
@@ -1032,15 +1024,15 @@ local function createInputRow(parent, labelText, defaultValue, callback)
     return frame
 end
 
-createInputRow(Tab2Page, "✈️ سرعة الطيران (Fly Speed):", MoveSettings.FlySpeed, function(v)
+createInputRow(Tab2Page, " سرعة الطيران (Fly Speed):", MoveSettings.FlySpeed, function(v)
     MoveSettings.FlySpeed = v; UIConfig.FlySpeedVal = v; saveConfiguration()
 end)
 
-createInputRow(Tab2Page, "⚡ سرعة المشي (Walk Speed):", MoveSettings.WalkSpeed, function(v)
+createInputRow(Tab2Page, " سرعة المشي (Walk Speed):", MoveSettings.WalkSpeed, function(v)
     MoveSettings.WalkSpeed = v; UIConfig.WalkSpeedVal = v; saveConfiguration()
 end)
 
-createInputRow(Tab2Page, "🦘 قوة القفز (Jump Power):", MoveSettings.JumpPower, function(v)
+createInputRow(Tab2Page, " قوة القفز (Jump Power):", MoveSettings.JumpPower, function(v)
     MoveSettings.JumpPower = v; UIConfig.JumpPowerVal = v; saveConfiguration()
 end)
 
